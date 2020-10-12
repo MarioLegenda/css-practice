@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /**
+            minmax() function takes the minimum height of the grid as its first argument
+            and max height as second argument. If second argument is set to auto, then the
+            max height will grow if the content takes more height than the min height (20px in
+            our example).
+
+            It is important to note that the height is for the grid track (a single row), not
+            for a grid item (grid children).
+
+            Giving a width to the .wrapper (who defines the grid), makes the grid abide by this
+            width.
+         */
+        .wrapper {
+            width: 10%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: minmax(2%, auto);
+        }
+
+        .wrapper div {
+            border: 1px solid red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div>One</div>
+    <div>Two
+        <p>I have some more content in.</p>
+        <p>This makes me taller than 100 pixels.</p>
+    </div>
+    <div>Three</div>
+    <div>Four</div>
+    <div>Five</div>
+</div>
+
+</body>
+</html>

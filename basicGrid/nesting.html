@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /**
+            This is self explanatory but it should be noted that child grids do not inherit any grid
+            data of its parent.
+         */
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 10px;
+            row-gap: 1em;
+        }
+
+        .box1 {
+            grid-column-start: 1;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        div {
+            border: 1px solid red;
+        }
+
+        .nested {
+            border: 1px solid green;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="box box1">
+        <div class="nested">a</div>
+        <div class="nested">b</div>
+        <div class="nested">c</div>
+    </div>
+    <div class="box box2">Two</div>
+    <div class="box box3">Three</div>
+    <div class="box box4">Four</div>
+    <div class="box box5">Five</div>
+</div>
+
+</body>
+</html>

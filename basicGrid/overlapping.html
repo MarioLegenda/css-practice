@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /**
+            The docs say z-index but this has nothing to do with z-index. If you take a look at
+            .box2 grid-row-start property, you will notice that it is set to 2. That means that
+            it will start at row 2. Since we are looking at this as lines, this means that .box2
+            starts at line 2. This line overlaps with .box1, therefor .box2 takes the space of
+            .box1. If you change this property to 1, .box2 will completely take space of .box1 but
+            only the column space that it hold.
+
+            What z-index actually does here its unclear.
+         */
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 100px;
+        }
+
+        .box1 {
+            grid-column-start: 1;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            z-index: 2;
+        }
+
+        .box2 {
+            grid-column-start: 1;
+            grid-row-start: 2;
+            grid-row-end: 4;
+            z-index: 1;
+        }
+
+        div {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="box box1">One</div>
+    <div class="box box2">Two</div>
+    <div class="box box3">Three</div>
+    <div class="box box4">Four</div>
+    <div class="box box5">Five</div>
+</div>
+
+</body>
+</html>

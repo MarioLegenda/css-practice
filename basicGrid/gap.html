@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /**
+            grid-column-gap control the gap between the columns and grid-row-gap the gap between
+            the rows. Better explained, grid-column-gap adds space between columns vertically,
+            while grid-row-gap adds space between rows vertically.
+
+            These properties are not to be confused with borders. It has nothing to do with borders,
+            or padding or margin. If you view this layout in a browser dev tools, you will se no
+            padding, margin or borders. You have to understand this as a gap only. An empty space.
+            Adding margin/padding just increases the space between rows/columns including the gap.
+         */
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-column-gap: 10px;
+            grid-row-gap: 50px;
+        }
+
+        .wrapper div {
+            border: 1px solid black;
+            /** margin-left: 20px; */
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="wrapper">
+    <div>One</div>
+    <div>Two</div>
+    <div>Three</div>
+    <div>Four</div>
+    <div>Five</div>
+</div>
+</body>
+</html>
