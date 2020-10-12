@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .wrapper {
+            /* Activate grid for all child elements, no styling needed in child elements */
+            display: grid;
+            /**
+                This is where we define how many grid we will have. This DOES NOT mean that we have
+                that many elements as children for this element.
+
+                For example, this element (.wrapper) has 6 children but we can define 3 columns for this
+                grid. That means that children will scale to 3 columns based on the number of values given
+                to this property.
+
+                For example, given grid-template-columns: 100px 100px 100px;, 3 columns will be created with
+                width of 100px and all child elements would have to fit in these columns. If we had 5 children,
+                that would create 3 columns with 2 rows, since 3 children elements can fit into one row with
+                100px. That would mean that the second (last) row has two elements.
+
+                Another example is using the .fr unit. This unit scales the available space (of the viewport)
+                to fit all the elements into the column.
+
+                For example, grid-template-columns: 1fr; it would create 1 column with all children in that one
+                column. But with grid-template-columns: 1fr 2fr 3fr; it would create 3 columns, first column will
+                be the smallest while the third column (3fr) will take the largest space (fraction) of the enclosing
+                element.
+
+                We can also define the height of the columns with grid-auto-rows: 100px;. This line will make the rows
+                be 100px in height.
+             */
+            grid-template-columns: 1fr 2fr 3fr;
+            grid-auto-rows: 100px;
+            grid-auto-columns: 50px;
+        }
+
+        .column {
+            border: 1px solid red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="column">One</div>
+    <div class="column">Two</div>
+    <div class="column">Three</div>
+    <div class="column">Four</div>
+    <div class="column">Five</div>
+</div>
+
+</body>
+</html>
