@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 100px);
+        }
+        /**
+            THIS EXPLANATION IS ONLY WHEN .box1 HAS STYLES, NOT THE REST OF THEM
+
+            In this box, we are saying this:
+               "Expand from column 1 to column 2 (not including column 2) and expand
+               from row 1 to row 4 but including row 4"
+
+            This is very strange because if we use only these rules
+                grid-column-start: 1;
+                grid-column-end: 2;
+            we would get the default behaviour without any rules whatsoever. Very strange.
+
+            Also setting grid-row-end: 1; does not have any effect.
+            The same thing with grid-column-end: 1; does not have any effect.
+
+            But the explanation could be this:
+            - Expand column 1 up to line 2. (column line 2 is the border)
+            - Expand row 1 up to line 4. (row line 4 is the border)
+
+            If we change grid-row-end: 3, that will be the border (actual psysical border).
+         */
+        .box1 {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 1;
+            grid-row-end: 4;
+
+            //background-color: red;
+        }
+
+
+        /**
+            If you run this file, you will see that individual elements can be placed anywhere in the
+            grid by only using these rule sets.
+
+            IMPORTANT NOTE:
+
+            If you use the same values for two of the boxes, they will overlap. The effect is the same
+            as with absolutely positioned elements. Try changing the below .box2 to
+                grid-column-start: 1
+                grid-column-end: 2
+
+            If you comment out the color, you will see that .box2 is above .box1 in the layout although
+            this element comes after .box1 in html. Very interesting.
+         */
+        .box2 {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 3;
+
+            //background-color: blue;
+        }
+        .box3 {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .box4 {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 3;
+            grid-row-end: 4;
+        }
+
+        .wrapper {
+            border: 1px solid black;
+        }
+
+        .wrapper div {
+            border: 1px solid red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="box1">One</div>
+    <div class="box2">Two</div>
+    <div class="box3">Three</div>
+    <div class="box4">Four</div>
+</div>
+
+</body>
+</html>
