@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /**
+            In this example, there are 4 column lines and 4 row lines although there are only
+            4 elements. This is irrelevant since we created exactly 3 columns and 3 rows.
+
+            This can also be called explicit declaration (not in documentation, my phrase) where
+            we do not let the content dictate the number of rows but we explicitly specify
+            how many rows the grid will have.
+         */
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /**
+                Very important to say that this gives a height of 100px to every row, e.i. every
+                child of this grid has 100px. If you change the first value of repeat() to 1,
+                only one row with 100px height will be created but the rest will have the height
+                of the content. The rest of the rows will be created but with content height.
+
+                It is also important to note that if there are for example 3 rows but only 2 grid
+                elements, the rest of the space will be blank but will be created. That means that
+                rows are created no matter how many grid elements (children) are there.
+
+                In our example, there are 4 children and 3 columns. That means with 3 rows, only 2 of
+                them will be populated with content (child elements) but the last one will be blank with
+                the middle one being with 2 elements only.
+             */
+            grid-template-rows: repeat(3, 100px);
+        }
+
+        .wrapper div {
+            border: 1px solid green;
+        }
+
+        .wrapper {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="box1">One</div>
+    <div class="box2">Two</div>
+    <div class="box3">Three</div>
+    <div class="box4">Four</div>
+</div>
+
+</body>
+</html>
