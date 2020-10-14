@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        :root {
+            --unit: 5px;
+        }
+
+        body {
+            min-width: 320px;
+        }
+
+        .columns {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            /** 100px height */
+            grid-auto-rows: calc(var(--unit) * 20);
+            grid-gap: 10px;
+        }
+
+        .column {
+            background-color: cyan;
+        }
+
+        /** Between 641px and 1221px is a table, i put 1221px because 1281px does not fit on my screen  */
+        @media all and (min-width: 641px) and (max-width: 1221px) {
+            .column:nth-child(n+9) {
+                display: none;
+            }
+
+            .columns {
+                grid-template-columns: repeat(8, 1fr);
+            }
+        }
+
+        /**
+            Targeting tables only
+        */
+        @media all and (min-width: 320px) and (max-width: 641px) {
+            .column:nth-child(n+5) {
+                display: none;
+            }
+
+            .columns {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /**
+            Media query for mobile only, > 320px (less than 320px)
+        */
+        @media all and (max-width: 320px) {
+            .column:nth-child(n+5) {
+                display: none;
+            }
+
+            .columns {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Taken from https://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile */
+        /**
+        @media (min-width:320px)  {  smartphones, iPhone, portrait 480x320 phones  }
+        @media (min-width:481px)  {  portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide.  }
+        @media (min-width:641px)  {  portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones  }
+        @media (min-width:961px)  {  tablet, landscape iPad, lo-res laptops ands desktops  }
+        @media (min-width:1025px) {  big landscape tablets, laptops, and desktops  }
+        @media (min-width:1281px) { hi-res laptops and desktops  }
+        */
+    </style>
+
+</head>
+
+<body>
+
+<div class="columns">
+    <!-- 12 columns -->
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+</div>
+
+</body>
+</html>
