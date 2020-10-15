@@ -4,7 +4,17 @@
 <head>
     <style>
         :root {
-            --unit: 5px;
+            --base-unit: 5px;
+            --grid-unit: 1fr;
+            --color-primary: cyan;
+
+            /**
+                Breakpoints with var() were considered but they dont seem to be working
+                with @media
+            */
+            --mobile-breakpoint: 320px;
+            --tablet-breakpoint: 641px;
+            --desktop-breakpoint: 1221px;
         }
 
         body {
@@ -13,14 +23,14 @@
 
         .columns {
             display: grid;
-            grid-template-columns: repeat(12, 1fr);
+            grid-template-columns: repeat(12, var(--grid-unit));
             /** 100px height */
-            grid-auto-rows: calc(var(--unit) * 20);
+            grid-auto-rows: calc(var(--base-unit) * 20);
             grid-gap: 10px;
         }
 
         .column {
-            background-color: cyan;
+            background-color: var(--color-primary);
         }
 
         /** Between 641px and 1221px is a table, i put 1221px because 1281px does not fit on my screen  */
@@ -30,7 +40,7 @@
             }
 
             .columns {
-                grid-template-columns: repeat(8, 1fr);
+                grid-template-columns: repeat(8, var(--grid-unit));
             }
         }
 
@@ -43,7 +53,7 @@
             }
 
             .columns {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(4, var(--grid-unit));
             }
         }
 
@@ -56,7 +66,7 @@
             }
 
             .columns {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(4, var(--grid-unit));
             }
         }
 

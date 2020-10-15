@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <style>
+        :root {
+            --color-primary: cyan;
+            --unit: 10px;
+        }
+
+        body {
+            min-width: 320px;
+        }
+
+        .wrapper {
+            display: grid;
+            /** This cannot be 5, for example for some reason. FIND OUT WHY */
+            grid-template-columns: repeat(9, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+            grid-template-areas:
+                "hd hd hd hd hd hd hd hd hd"
+                "sdl main main main main main main main sdr"
+                "ft ft ft ft ft ft ft ft ft";
+            grid-gap: var(--unit);
+        }
+
+        .wrapper div {
+            background-color: var(--color-primary);
+        }
+
+        .header {
+            grid-area: hd;
+        }
+        .footer {
+            grid-area: ft;
+        }
+        .content {
+            grid-area: main;
+        }
+        .sidebar-left {
+            grid-area: sdl;
+        }
+        .sidebar-right {
+            grid-area: sdr;
+        }
+
+        /** Between 641px and 1221px is a table, i put 1221px because 1281px does not fit on my screen  */
+        @media all and (min-width: 320px) and (max-width: 1221px) {
+            .wrapper {
+                grid-template-columns: repeat(9, 1fr);
+                grid-template-areas:
+                "hd hd hd hd hd hd hd hd hd"
+                "main main main main main main main main main"
+                "ft ft ft ft ft ft ft ft ft";
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        /**
+            Media query for mobile only, > 320px (less than 320px)
+        */
+        @media all and (max-width: 320px) {
+            .wrapper {
+                grid-template-columns: repeat(9, 1fr);
+                grid-template-areas:
+                "hd hd hd hd hd hd hd hd hd"
+                "main main main main main main main main main"
+                "ft ft ft ft ft ft ft ft ft";
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="header">Header</div>
+    <div class="sidebar sidebar-left">Sidebar left</div>
+    <div class="content">Content</div>
+    <div class="sidebar sidebar-right">Sidebar right</div>
+    <div class="footer">Footer</div>
+</div>
+
+</body>
+</html>
