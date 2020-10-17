@@ -1,0 +1,46 @@
+:root {
+    --color-background: #FFFFFF;
+    --color-primary: #F04623;
+    --color-dark-primary: #212426;
+    --color-dark-secondary: #212426;
+
+    --color-text-primary: #484F53;
+    --color-text-secondary: #A5ACB1;
+
+    --color-util-success: #0FCD44;
+    --color-util-gold: #F5AF2E;
+
+    --font-size-base: 2px;
+    --line-height-base: 2px;
+}
+
+.base--text {
+    font-family: Aeonik;
+    font-style: normal;
+    font-weight: normal;
+
+    -webkit-font-feature-settings: "ss02" 1;
+    -moz-font-feature-settings:    "ss02" 1;
+    -ms-font-feature-settings:     "ss02" 1;
+    font-feature-settings: 'ss02' 1;
+}
+
+.base--text-small {
+    font-size: calc(var(--font-size-base) * 8);
+    line-height: calc(var(--line-height-base) * 10);
+}
+
+.base--text-medium {
+    font-size: calc(var(--font-size-base) * 10);
+    line-height: calc(var(--line-height-base) * 14);
+}
+
+.base--text-large {
+    font-size: calc(var(--font-size-base) * 12 + 1);
+    line-height: calc(var(--line-height-base) * 18);
+}
+
+.base--text-extra-large {
+    font-size: calc(var(--font-size-base) * 15 + 1);
+    line-height: calc(var(--line-height-base) * 20);
+}
