@@ -1,0 +1,31 @@
+.header {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: calc(var(--unit) * 10)
+}
+
+.header__logo {
+    color: var(--color-primary);
+    font-style: italic;
+    font-weight: bolder;
+
+    margin-left: calc(var(--unit) * 4);
+}
+
+.header__call-to-action {
+    width: 195px;
+
+    color: white;
+    background-color: var(--color-primary);
+
+    padding: 14px 48px 14px 48px;
+    border-radius: 66px;
+    text-align: center;
+
+    margin-right: calc(var(--unit) * 4);
+}

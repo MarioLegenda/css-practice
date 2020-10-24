@@ -1,4 +1,10 @@
+body {
+    min-width: 320px;
+}
+
 :root {
+    --unit: 5px;
+
     --color-background: #FFFFFF;
     --color-primary: #F04623;
     --color-dark-primary: #212426;
@@ -12,10 +18,8 @@
 
     --font-size-base: 2px;
     --line-height-base: 2px;
-}
 
-.base--text {
-    font-family: Aeonik;
+    font-family: "Roboto Light", sans-serif;
     font-style: normal;
     font-weight: normal;
 
@@ -25,22 +29,26 @@
     font-feature-settings: 'ss02' 1;
 }
 
-.base--text-small {
+.text--sm {
     font-size: calc(var(--font-size-base) * 8);
     line-height: calc(var(--line-height-base) * 10);
 }
 
-.base--text-medium {
+.text--md {
     font-size: calc(var(--font-size-base) * 10);
     line-height: calc(var(--line-height-base) * 14);
 }
 
-.base--text-large {
-    font-size: calc(var(--font-size-base) * 12 + 1);
+.text--l {
+    font-size: calc(var(--font-size-base) * 12);
     line-height: calc(var(--line-height-base) * 18);
 }
 
-.base--text-extra-large {
-    font-size: calc(var(--font-size-base) * 15 + 1);
+.text--xl {
+    /**
+        This comes down to 30px but required is 31 but this is not possible with calc
+        calc(var(--font-size-base) * 15 + 1) = X
+     */
+    font-size: calc(var(--font-size-base) * 15);
     line-height: calc(var(--line-height-base) * 20);
 }
